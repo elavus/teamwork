@@ -1,8 +1,11 @@
 ﻿body {
     font-family:Verdana;
-    font-size:72px;
-    vertical-align:middle;
+    font-size:5vw;
     text-align:center;
+    vertical-align:middle;
+    background-color:silver;
+    color:darkgray;
+    margin:0px;
 }
 
 .logo {
@@ -11,5 +14,68 @@
 }
 .logo2 {
     align-content: center;
-    width: 50vw;
+    width: 100%;
+}
+
+.table{
+    display: table;
+}
+
+
+.headerRow{
+    display: table-row;
+    height:15vh;
+    vertical-align:middle;
+}
+
+.headerCellLeft{
+    display: table-cell;
+    height:inherit;
+    width: 30vw;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:right;
+}
+
+.headerCellRight{
+    display: table-cell;
+    height:inherit;
+    width: 70vw;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    color:navy;
+    font-size: 8vw;
+}
+
+.linkRow{
+    display: table-row;
+    height:20vh;
+    vertical-align:middle;
+    background-color:navy;
+}
+
+.linkCellLeft{
+    display: table-cell;
+    height:inherit;
+    width: 30vw;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:right;
+}
+
+.linkCellRight{
+    display: table-cell;
+    height:inherit;
+    width: 70vw;
+    background-color:inherit;
+    vertical-align:middle;
+    text-align:left;
+    color:white;
+    font-size: 6vw;
+    padding-left: 1vw;
+}
+
+.link{
+    color:inherit;
 }
