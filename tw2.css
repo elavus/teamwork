@@ -1,0 +1,110 @@
+﻿body {
+    background-color:silver;
+    font-family:'Arial Rounded MT';
+    margin:0px;
+}
+
+.table{
+    display: table;
+}
+
+.row {
+    display: table-row;
+}
+
+.wodCell{
+    display: inline-block;
+    height:98%;
+    width:98%;
+    border-radius: 50px 50px 50px 50px;
+    background-color: lightgrey;
+    margin-left:1vw;
+    margin-right:1vw;
+}
+
+.headerCellMobile{
+    display: table-cell;
+    height:inherit;
+    width: 100vw;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:7vw;
+    color:firebrick;
+    padding-top:6px;
+    padding-bottom:6px;
+}
+
+.wodDayCellMobile{
+    display: table-cell;
+    height:inherit;
+    width: 100vw;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:3vw;
+    color:navy;
+}
+
+.wodTitleCellMobile{
+    display: table-cell;
+    height:inherit;
+    width: 100vw;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:6vw;
+    color:navy;
+}
+
+
+.wodDescriptionCellMobile{
+    display: table-cell;
+    height:2vh;
+    width: 100vw;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:3vw;
+    color:black;
+}
+
+.wodCommentCellMobile{
+    display: table-cell;
+    height:inherit;
+    width: 100vw;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:'Verdana';
+    font-size:3vw;
+    color:GrayText;
+}
+
+.wodPrimaryAthleteCellMobile{
+    display: table-cell;
+    height:inherit;
+    width: 100vw;
+    background-color:palegoldenrod;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:6vw;
+    color:firebrick;
+}
+
+.wodSecondaryAthleteCellMobile{
+    display: table-cell;
+    height:inherit;
+    width: 100vw;
+    background-color:paleturquoise;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:6vw;
+    color:GrayText;
+}
