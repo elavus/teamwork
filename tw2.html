@@ -9,71 +9,6 @@
     <title>TeamWork benefiting the Navy Seal Foundation</title>
 </head>
 <body ng-app="teamWorkApp" ng-controller="teamWorkController as vm">
-    <!-- Desktop ->
-    <div ng-hide="vm.IsMobile" class="table">
-        <div class="headerRow">
-            <div class="headerCellLeft">
-                <img class="headerCellLeft" src="http://assets.crossfit.com/build/img/sites/games/logos/2020.svg" />
-                <span class="tooltiptext">
-                    How to Get Points<hr />
-                    <label ng-repeat="accomplishment in vm.Sheet.Accomplishments">{{accomplishment.gsx$comments.$t}} - {{accomplishment.gsx$points.$t}} pts<br /></label>
-                </span>
-            </div>
-            <div class="headerCellCenter">2020 Elavus CrossFit Open</div>
-            <div class="headerCellRight">
-                <img class="headerCellRight" src="Images/Elavus.png" />
-            </div>
-        </div>
-    </div>
-
-    <div ng-hide="vm.IsMobile" class="table">
-        <div class="teamsRow">
-            <div ng-repeat="team in vm.Teams" class="teamsCell">
-                <div class="teamCell">
-                    <img class="teamHeader" ng-src="Images/{{team.Logo}}" />
-                    <div class="table">
-                        <div class="basicRow">
-                            <div class="basicCellLeft">
-                                <label class="team" ng-show="team.Initialized">{{team.Icon}}</label>
-                            </div>
-                            <div class="basicCellCenter">
-                                <label class="team">{{team.Name}}</label>
-                            </div>
-                            <div class="basicCellRight">
-                                <label class="team" ng-show="team.Initialized">{{team.FormattedScore}}</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr />
-
-                    <div class="table">
-                        <div class="basicRow" ng-repeat="athlete in team.Athletes">
-                            <div class="basicCellLeft" ng-hide="athlete.Initialized"></div>
-                            <div class="basicCellCenter" ng-hide="athlete.Initialized">
-                                <label class="team">{{athlete.Athlete}}</label>
-                            </div>
-
-                            <div class="basicCellLeftCenter" ng-show="athlete.Initialized">
-                                <label class="team">{{athlete.Icon}} </label>
-                                <label class="team">{{athlete.Athlete}}</label>
-                                <span class="tooltiptext">
-                                    Athlete: {{athlete.Athlete}} - {{athlete.Score}} pts<hr />
-                                    <label ng-repeat="score in athlete.Scores">Week {{score.Week}}: {{score.Accomplishment}} - {{score.Score}} pts<br /></label>
-                                </span>
-                            </div>
-                            <div class="basicCellRight">
-                                <label class="team" ng-show="athlete.Initialized">{{athlete.Score}}</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
-
-
     <!-- Desktop -->
     <div ng-hide="vm.IsMobile" class="table">
         <div class="row">
@@ -97,13 +32,13 @@
                         <div class="table">
                             <div ng-repeat="athlete in wod.Primary track by $index">
                                 <div class="row">
-                                    <div class="wodPrimaryAthleteCellDesktop">🟡 {{athlete}}</div>
+                                    <div class="wodPrimaryAthleteCellDesktop">{{athlete}}</div>
                                 </div>
                             </div>
 
                             <div ng-repeat="athlete in wod.Secondary track by $index">
                                 <div class="row">
-                                    <div class="wodSecondaryAthleteCellDesktop">🔵 {{athlete}}</div>
+                                    <div class="wodSecondaryAthleteCellDesktop">{{athlete}}</div>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +50,7 @@
                             {{wod.Day}}<br />
                             {{wod.Title}}<hr />
                             <label ng-repeat="description in wod.Description track by $index">{{description}}<br /></label><br />
-                            <label ng-repeat="comment in wod.Comments track by $index">{{comment}}<br /></label>
+                            <label ng-repeat="comment in wod.Comments track by $index">{{comment<br /></label>
                         </span>
                         <br />
                         <br />
@@ -154,13 +89,13 @@
                     <div class="table">
                         <div ng-repeat="athlete in wod.Primary track by $index">
                             <div class="row">
-                                <div class="wodPrimaryAthleteCellMobile">🟡 {{athlete}}</div>
+                                <div class="wodPrimaryAthleteCellMobile">{{athlete}}</div>
                             </div>
                         </div>
 
                         <div ng-repeat="athlete in wod.Secondary track by $index">
                             <div class="row">
-                                <div class="wodSecondaryAthleteCellMobile">🔵 {{athlete}}</div>
+                                <div class="wodSecondaryAthleteCellMobile">{{athlete}}</div>
                             </div>
                         </div>
                     </div>

@@ -187,18 +187,26 @@ function teamWorkController($scope, $interval, $location, teamWorkFactory) {
 
         if (isPrimary)
         {
-            outText = "(Athlete Needed)";
+            outText = '🏋️ (Athlete Needed)';
         }
         else
         {
-            outText = "(Athlete Spot Available)"
+            outText = '🏃 (Athlete Spot Available)';
         }
 
         if (text != null)
         {
             if (text.length > 0)
             {
-                outText = '';
+                if (isPrimary)
+                {
+                    outText = '🏋 ';
+                }
+                else
+                {
+                    outText = '🏃 ';
+                }
+
                 for (var i = 0; i < text.length; i++)
                 {
                     if (text.charCodeAt(i) == 10)
