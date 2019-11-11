@@ -203,7 +203,7 @@
     width: inherit;
     background-color:inherit;
     vertical-align:inherit;
-    text-align:left;
+    text-align:center;
     font-family:inherit;
     font-size:calc(1vw - 1px);
     color:firebrick;
@@ -215,7 +215,7 @@
     width: inherit;
     background-color:inherit;
     vertical-align:inherit;
-    text-align:left;
+    text-align:center;
     font-family:inherit;
     font-size:calc(1vw - 1px);
     color:GrayText;
