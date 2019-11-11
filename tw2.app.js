@@ -11,7 +11,11 @@ function teamWorkController($scope, $interval, $location, teamWorkFactory) {
     vm.activeWOD = null;
     vm.WODData = null;
 
-    vm.IsMobile = true;
+    vm.IsMobile = false;
+    if (window.innerHeight > window.innerWidth)
+    {
+        vm.IsMobile = true;
+    }
 
     getWODs();
 
@@ -22,54 +26,80 @@ function teamWorkController($scope, $interval, $location, teamWorkFactory) {
 
     function getWODsOnSuccess(response) {
         var title;
+        var index;
+        var row;
+        var col;
+        var wod;
+
         vm.WODData = angular.extend({}, response.data);
 
         vm.WODs = [];
-        vm.WODs[0] = {};
-        vm.WODs[0].Day = getDay(0);
-        vm.WODs[0].Title = '12:00 PM - Kickoff';
-        vm.WODs[0].Description = splitText('WOD to be announced at the event!');
-        vm.WODs[0].Comments = splitText('This is a WOD for the entire box.' +  String.fromCharCode(13, 10) + 'Please signup using WODIFY like a normal class.');
-        vm.WODs[0].Primary = [];
-        vm.WODs[0].Secondary = [];
+        vm.Rows = [];
+        index = 0;
+        if (vm.IsMobile)
+        {
+            vm.WODs[0] = {};
+            vm.WODs[0].Day = getDay(0);
+            vm.WODs[0].Title = '12:00 PM - Kickoff';
+            vm.WODs[0].Description = splitText('WOD to be announced at the event!');
+            vm.WODs[0].Comments = splitText('This is a WOD for the entire box.' + String.fromCharCode(13, 10) + 'Please signup using WODIFY like a normal class.');
+            vm.WODs[0].Primary = [];
+            vm.WODs[0].Secondary = [];
+            index++;
+        }
 
         for (var i = 0; i < vm.WODData.feed.entry.length; i++)
         {
-            vm.WODs[i+1] = {};
+            row = Math.floor(i / 6);
+            col = i % 6;
 
-            vm.WODs[i + 1].Day = getDay(i);
+            
+            wod = {};
+            wod.Day = getDay(i);
 
             title = vm.WODData.feed.entry[i].gsx$start.$t + ' - ' + vm.WODData.feed.entry[i].gsx$name.$t;
-            vm.WODs[i + 1].Title = title;
+            wod.Title = title;
 
             title = vm.WODData.feed.entry[i].gsx$description.$t;
-            vm.WODs[i + 1].Description = splitText(title);
+            wod.Description = splitText(title);
+            wod.ShortDescription = shortText(title, 6);
 
             title = vm.WODData.feed.entry[i].gsx$notes.$t;
-            vm.WODs[i + 1].Comments = splitText(title);
+            wod.Comments = splitText(title);
 
-            vm.WODs[i + 1].Primary = [];
+            wod.Primary = [];
             title = vm.WODData.feed.entry[i].gsx$athlete1.$t;
-            vm.WODs[i + 1].Primary[0] = cleanAthlete(title, true);
+            wod.Primary[0] = cleanAthlete(title, true);
 
             title = vm.WODData.feed.entry[i].gsx$athlete2.$t;
-            vm.WODs[i + 1].Primary[1] = cleanAthlete(title, true);
+            wod.Primary[1] = cleanAthlete(title, true);
 
             // Spehar
             if (i == 17)
             {
                 title = vm.WODData.feed.entry[i].gsx$athlete3.$t;
-                vm.WODs[i + 1].Primary[2] = cleanAthlete(title, true);
+                wod.Primary[2] = cleanAthlete(title, true);
             }
             else
             {
-                vm.WODs[i + 1].Secondary = [];
+                wod.Secondary = [];
                 title = vm.WODData.feed.entry[i].gsx$athlete3.$t;
-                vm.WODs[i + 1].Secondary[0] = cleanAthlete(title, false);
+                wod.Secondary[0] = cleanAthlete(title, false);
 
                 title = vm.WODData.feed.entry[i].gsx$athlete4.$t;
-                vm.WODs[i + 1].Secondary[1] = cleanAthlete(title, false);
+                wod.Secondary[1] = cleanAthlete(title, false);
             }
+
+
+            vm.WODs[index] = wod;
+            if (col == 0)
+            {
+                vm.Rows[row] = [];
+                vm.Rows[row].Cells = [];
+            }
+            vm.Rows[row].Cells[col] = wod;
+
+            index++;
         }
 
         response = undefined;
@@ -112,6 +142,39 @@ function teamWorkController($scope, $interval, $location, teamWorkFactory) {
                 {
                     outText[iIndex] += text.charAt(i);
                 }
+            }
+        }
+
+        return outText;
+    }
+
+    function shortText(text, rows)
+    {
+        var iIndex;
+        var outText;
+
+        iIndex = 0;
+        outText = [];
+        if (text != null)
+        {
+            outText[iIndex] = '';
+            for (var i = 0; i < text.length; i++)
+            {
+                if (text.charCodeAt(i) == 10)
+                {
+                    iIndex++;
+                    if (iIndex == rows)
+                    {
+                        outText[rows - 1] += ' ...';
+                        return outText;
+                    }
+                    outText[iIndex] = '';
+                }
+                else
+                {
+                    outText[iIndex] += text.charAt(i);
+                }
+
             }
         }
 

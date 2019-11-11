@@ -6,10 +6,14 @@
 
 .table{
     display: table;
+    width: inherit;
+    height: inherit;
 }
 
 .row {
     display: table-row;
+    width: inherit;
+    height: inherit;
 }
 
 .wodCell{
@@ -18,9 +22,18 @@
     width:98%;
     border-radius: 50px 50px 50px 50px;
     background-color: lightgrey;
+}
+
+.wodCellMobile{
+    display: inline-block;
+    height:98%;
+    width:98%;
+    border-radius: 50px 50px 50px 50px;
+    background-color: lightgrey;
     margin-left:1vw;
     margin-right:1vw;
 }
+
 
 .headerCellMobile{
     display: table-cell;
@@ -89,7 +102,7 @@
     display: table-cell;
     height:inherit;
     width: 100vw;
-    background-color:palegoldenrod;
+    background-color:inherit;
     vertical-align:inherit;
     text-align:center;
     font-family:inherit;
@@ -101,10 +114,134 @@
     display: table-cell;
     height:inherit;
     width: 100vw;
-    background-color:paleturquoise;
+    background-color:inherit;
     vertical-align:inherit;
     text-align:center;
     font-family:inherit;
     font-size:6vw;
     color:GrayText;
 }
+
+.wodCellDesktop{
+    display: inline-block;
+    height:21vh;
+    width:calc(100vw / 6 - 8px);
+    border-radius: 50px 50px 50px 50px;
+    background-color: lightgrey;
+    margin-left:2px;
+    margin-right:2px;
+    margin-top:2px;
+    margin-bottom:2px;
+}
+
+.headerCellDesktop{
+    display: table-cell;
+    height:inherit;
+    width: 100vw;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:5vw;
+    color:firebrick;
+    padding-top:2px;
+    padding-bottom:2px;
+}
+
+.wodDayCellDesktop{
+    display: table-cell;
+    height:inherit;
+    width: inherit;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:calc(1vw - 2px);
+    color:navy;
+}
+
+.wodTitleCellDesktop{
+    display: table-cell;
+    height:inherit;
+    width: inherit;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:calc(1vw + 2px);
+    color:navy;
+}
+
+
+.wodDescriptionCellDesktop{
+    display: table-cell;
+    height: 12px;
+    width: inherit;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:inherit;
+    font-size:calc(1vw - 3px);
+    color:black;
+}
+
+.wodCommentCellDesktop{
+    display: table-cell;
+    height:inherit;
+    width: inherit;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:center;
+    font-family:'Verdana';
+    font-size:calc(1vw - 1px);
+    color:GrayText;
+}
+
+.wodPrimaryAthleteCellDesktop{
+    display: table-cell;
+    height:inherit;
+    width: inherit;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:left;
+    font-family:inherit;
+    font-size:calc(1vw - 1px);
+    color:firebrick;
+}
+
+.wodSecondaryAthleteCellDesktop{
+    display: table-cell;
+    height:inherit;
+    width: inherit;
+    background-color:inherit;
+    vertical-align:inherit;
+    text-align:left;
+    font-family:inherit;
+    font-size:calc(1vw - 1px);
+    color:GrayText;
+}
+
+/* Tooltip text */
+.wodCellDesktop .tooltiptext {
+  visibility: hidden;
+
+  top: 15vh;
+  width: 50vw;
+  left: 25vw;
+  background-color: navy;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.wodCellDesktop:hover .tooltiptext {
+  visibility: visible;
+}
+
+
