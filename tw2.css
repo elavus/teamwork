@@ -16,20 +16,56 @@
     height: inherit;
 }
 
-.wodCell{
+.wodCellFull{
     display: inline-block;
-    height:98%;
-    width:98%;
+    height:100%;
+    width:100%;
     border-radius: 50px 50px 50px 50px;
     background-color: lightgrey;
 }
 
-.wodCellMobile{
+.wodCellHalf{
+    display: inline-block;
+    height:100%;
+    width:100%;
+    border-radius: 50px 50px 50px 50px;
+    background-color: palegoldenrod;
+}
+
+.wodCellNeed{
+    display: inline-block;
+    height:100%;
+    width:100%;
+    border-radius: 50px 50px 50px 50px;
+    background-color: lightgoldenrodyellow;
+}
+
+.wodCellFullMobile{
     display: inline-block;
     height:98%;
     width:98%;
     border-radius: 50px 50px 50px 50px;
     background-color: lightgrey;
+    margin-left:1vw;
+    margin-right:1vw;
+}
+
+.wodCellHalfMobile{
+    display: inline-block;
+    height:98%;
+    width:98%;
+    border-radius: 50px 50px 50px 50px;
+    background-color: palegoldenrod;
+    margin-left:1vw;
+    margin-right:1vw;
+}
+
+.wodCellNeedMobile{
+    display: inline-block;
+    height:98%;
+    width:98%;
+    border-radius: 50px 50px 50px 50px;
+    background-color: lightgoldenrodyellow;
     margin-left:1vw;
     margin-right:1vw;
 }
@@ -95,10 +131,10 @@
     text-align:center;
     font-family:'Verdana';
     font-size:3vw;
-    color:GrayText;
+    color: darkslategray;
 }
 
-.wodPrimaryAthleteCellMobile{
+.wodAthleteCellNeededMobile{
     display: table-cell;
     height:inherit;
     width: 100vw;
@@ -110,7 +146,7 @@
     color:firebrick;
 }
 
-.wodSecondaryAthleteCellMobile{
+.wodAthleteCellMobile{
     display: table-cell;
     height:inherit;
     width: 100vw;
@@ -119,7 +155,7 @@
     text-align:center;
     font-family:inherit;
     font-size:6vw;
-    color:GrayText;
+    color:navy;
 }
 
 .wodCellDesktop{
@@ -194,10 +230,10 @@
     text-align:center;
     font-family:'Verdana';
     font-size:calc(1vw - 1px);
-    color:GrayText;
+    color:darkslategray;
 }
 
-.wodPrimaryAthleteCellDesktop{
+.wodAthleteCellNeededDesktop{
     display: table-cell;
     height:inherit;
     width: inherit;
@@ -209,7 +245,7 @@
     color:firebrick;
 }
 
-.wodSecondaryAthleteCellDesktop{
+.wodAthleteCellDesktop{
     display: table-cell;
     height:inherit;
     width: inherit;
@@ -218,7 +254,7 @@
     text-align:center;
     font-family:inherit;
     font-size:calc(1vw - 1px);
-    color:GrayText;
+    color: navy;
 }
 
 /* Tooltip text */

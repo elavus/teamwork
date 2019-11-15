@@ -21,7 +21,7 @@
     <div ng-hide="vm.IsMobile" class="table">
         <div ng-repeat="row in vm.Rows" class="row">
             <div ng-repeat="wod in row.Cells" class="wodCellDesktop">
-                <div class="wodCell">
+                <div class="{{wod.Class}}">
                     <div class="table">
                         <div class="row">
                             <div class="wodDayCellDesktop">{{wod.Day}}</div>
@@ -31,11 +31,11 @@
                         </div>
                         <div class="table">
                             <div ng-repeat="athlete in wod.Primary track by $index" class="row">
-                                <div class="wodPrimaryAthleteCellDesktop">🏋️ {{athlete}}</div>
+                                <div class="{{athlete.Class}}Desktop">🏋️ {{athlete.Name}}</div>
                             </div>
 
                             <div ng-repeat="athlete in wod.Secondary track by $index" class="row">
-                                <div class="wodSecondaryAthleteCellDesktop">🏃 {{athlete}}</div>
+                                <div class="{{athlete.Class}}Desktop">🏃 {{athlete.Name}}</div>
                             </div>
                         </div>
                         <div ng-repeat="description in wod.ShortDescription track by $index" class="row">
@@ -71,7 +71,7 @@
 
     <div ng-show="vm.IsMobile" class="table">
         <div ng-repeat="wod in vm.WODs" class="row">
-            <div class="wodCellMobile">
+            <div class="{{wod.Class}}Mobile">
                 <div class="table">
                     <div class="row">
                         <div class="wodDayCellMobile">{{wod.Day}}</div>
@@ -84,11 +84,11 @@
                     </div>
                     <div class="table">
                         <div ng-repeat="athlete in wod.Primary track by $index" class="row">
-                            <div class="wodPrimaryAthleteCellMobile">🏋️ {{athlete}}</div>
+                            <div class="{{athlete.Class}}Mobile">🏋️ {{athlete.Name}}</div>
                         </div>
 
                         <div ng-repeat="athlete in wod.Secondary track by $index" class="row">
-                            <div class="wodSecondaryAthleteCellMobile">🏃 {{athlete}}</div>
+                            <div class="{{athlete.Class}}Mobile">🏃 {{athlete.Name}}</div>
                         </div>
                     </div>
                     <div ng-repeat="comment in wod.Comments track by $index" class="row">

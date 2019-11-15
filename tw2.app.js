@@ -30,6 +30,7 @@ function teamWorkController($scope, $interval, $location, teamWorkFactory) {
         var row;
         var col;
         var wod;
+        var athlete;
 
         vm.WODData = angular.extend({}, response.data);
 
@@ -45,6 +46,7 @@ function teamWorkController($scope, $interval, $location, teamWorkFactory) {
             vm.WODs[0].Comments = splitText('This is a WOD for the entire box.' + String.fromCharCode(13, 10) + 'Please signup using WODIFY like a normal class.');
             vm.WODs[0].Primary = [];
             vm.WODs[0].Secondary = [];
+            vm.WODs[0].Class = "wodCellFull";
             index++;
         }
 
@@ -67,27 +69,34 @@ function teamWorkController($scope, $interval, $location, teamWorkFactory) {
             title = vm.WODData.feed.entry[i].gsx$notes.$t;
             wod.Comments = splitText(title);
 
+            wod.Class = "wodCellFull";
             wod.Primary = [];
             title = vm.WODData.feed.entry[i].gsx$athlete1.$t;
-            wod.Primary[0] = cleanAthlete(title, true);
+            wod.Primary[0] = createAthlete(title, true);
 
             title = vm.WODData.feed.entry[i].gsx$athlete2.$t;
-            wod.Primary[1] = cleanAthlete(title, true);
+            wod.Primary[1] = createAthlete(title, true);
 
             // Spehar
             if (i == 17)
             {
                 title = vm.WODData.feed.entry[i].gsx$athlete3.$t;
-                wod.Primary[2] = cleanAthlete(title, true);
+                wod.Primary[2] = createAthlete(title, true);
+
+                if (wod.Primary[2].Needed) wod.Class = 'wodCellNeed';
+                
             }
             else
             {
                 wod.Secondary = [];
                 title = vm.WODData.feed.entry[i].gsx$athlete3.$t;
-                wod.Secondary[0] = cleanAthlete(title, false);
+                wod.Secondary[0] = createAthlete(title, false);
 
                 title = vm.WODData.feed.entry[i].gsx$athlete4.$t;
-                wod.Secondary[1] = cleanAthlete(title, false);
+                wod.Secondary[1] = createAthlete(title, false);
+
+                if (wod.Secondary[1].Needed) wod.Class = 'wodCellHalf';
+                if (wod.Primary[1].Needed) wod.Class = 'wodCellNeed';
             }
 
 
@@ -105,7 +114,20 @@ function teamWorkController($scope, $interval, $location, teamWorkFactory) {
         response = undefined;
     }
 
-    function getDay( index )
+    function createAthlete(name, isPrimary)
+    {
+        var athlete;
+
+        athlete = {};
+        athlete.Name = cleanAthlete(name, isPrimary);
+        athlete.Needed = (athlete.Name.substring(0, 1) == '(');
+        athlete.Class = "wodAthleteCell";
+        if (athlete.Needed) athlete.Class = "wodAthleteCellNeeded";
+
+        return athlete;
+    }
+
+    function getDay(index)
     {
         var day;
         day = "Sunday, Nov 24, 2019";
