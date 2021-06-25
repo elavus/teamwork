@@ -67,6 +67,7 @@ function liftLocalController($scope, $interval, $location, liftLocalFactory) {
     for (var i = 0; i < vm.SignupData.feed.entry.length; i++) {
       signup = {};
       signup.Name = cleanAthlete(vm.SignupData.feed.entry[i].gsx$name.$t);
+
       signup.IsCrossfitter = false;
       if (vm.SignupData.feed.entry[i].gsx$crossfitter.$t == 'Yes') {
         signup.IsCrossfitter = true;
@@ -97,11 +98,13 @@ function liftLocalController($scope, $interval, $location, liftLocalFactory) {
       }
 
       index = findWodIndex(vm.Signups[athlete].Second);
-      if (vm.Signups[athlete].IsCrossfitter) {
-        vm.WODs[index].Primary[vm.WODs[index].Primary.length] = createAthlete(vm.Signups[athlete]);
-      }
-      else {
-        vm.WODs[index].Secondary[vm.WODs[index].Secondary.length] = createAthlete(vm.Signups[athlete]);
+      if (index >= 0) {
+        if (vm.Signups[athlete].IsCrossfitter) {
+          vm.WODs[index].Primary[vm.WODs[index].Primary.length] = createAthlete(vm.Signups[athlete]);
+        }
+        else {
+          vm.WODs[index].Secondary[vm.WODs[index].Secondary.length] = createAthlete(vm.Signups[athlete]);
+        }
       }
 
       if (vm.Signups[athlete].Community) {
