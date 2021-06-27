@@ -75,7 +75,7 @@ function liftLocalController($scope, $interval, $location, liftLocalFactory) {
 
       signup.Box = vm.SignupData.feed.entry[i].gsx$wheredoyoutrainnormally.$t;
       signup.First = vm.SignupData.feed.entry[i].gsx$selectthefirstheroworkoutyouwouldliketodo.$t;
-      signup.Second = vm.SignupData.feed.entry[i].gsx$selectthefirstheroworkoutyouwouldliketodo.$t;
+      signup.Second = vm.SignupData.feed.entry[i].gsx$selectthesecondheroworkoutyouwouldliketodo.$t;
       signup.Community = false;
       if (vm.SignupData.feed.entry[i].gsx$wouldyouliketoparticipateinthecommunityworkoutatnoononsaturday724.$t == 'Yes') {
         signup.Community = true;
@@ -136,9 +136,7 @@ function liftLocalController($scope, $interval, $location, liftLocalFactory) {
 
     athlete = {};
     athlete.Name = cleanAthlete(signup.Name, signup.IsCrossfitter);
-    athlete.Needed = (athlete.Name.substring(0, 1) == '(');
     athlete.Class = "wodAthleteCell";
-    if (athlete.Needed) athlete.Class = "wodAthleteCellNeeded";
 
     return athlete;
   }
