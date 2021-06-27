@@ -66,18 +66,18 @@ function liftLocalController($scope, $interval, $location, liftLocalFactory) {
     vm.Signups = {};
     for (var i = 0; i < vm.SignupData.feed.entry.length; i++) {
       signup = {};
-      signup.Name = cleanAthlete(vm.SignupData.feed.entry[i].gsx$name.$t);
+      signup.Name = cleanAthlete(vm.SignupData.feed.entry[i].gsx$enteryournamefirstandlast.$t);
 
       signup.IsCrossfitter = false;
-      if (vm.SignupData.feed.entry[i].gsx$crossfitter.$t == 'Yes') {
+      if (vm.SignupData.feed.entry[i].gsx$areyouacrossfittercurrently.$t == 'Yes') {
         signup.IsCrossfitter = true;
       }
 
-      signup.Box = vm.SignupData.feed.entry[i].gsx$box.$t;
-      signup.First = vm.SignupData.feed.entry[i].gsx$first.$t;
-      signup.Second = vm.SignupData.feed.entry[i].gsx$second.$t;
+      signup.Box = vm.SignupData.feed.entry[i].gsx$wheredoyoutrainnormally.$t;
+      signup.First = vm.SignupData.feed.entry[i].gsx$selectthefirstheroworkoutyouwouldliketodo.$t;
+      signup.Second = vm.SignupData.feed.entry[i].gsx$selectthefirstheroworkoutyouwouldliketodo.$t;
       signup.Community = false;
-      if (vm.SignupData.feed.entry[i].gsx$community.$t == 'Yes') {
+      if (vm.SignupData.feed.entry[i].gsx$wouldyouliketoparticipateinthecommunityworkoutatnoononsaturday724.$t == 'Yes') {
         signup.Community = true;
       }
 
