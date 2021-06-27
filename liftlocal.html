@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="liftlocal.css">
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-ui-router.min.js"></script>
-    <script src="liftlocal.app.js"></script>
-    <script src="liftlocal.factory.js"></script>
+    <script src="liftlocal.app.js?2"></script>
+    <script src="liftlocal.factory.js?2"></script>
     <title>LiftLocal benefiting the Montgomery County YSB Nourish Program</title>
 </head>
 <body ng-app="liftLocalApp" ng-controller="liftLocalController as vm">
@@ -17,11 +17,11 @@
         <hr />
     </div>
 
-
     <div class="table">
         <div ng-repeat="wod in vm.WODs" class="row">
             <div class="{{wod.Class}}Mobile">
                 <div class="table">
+                    <br />
                     <div class="row">
                         <div class="wodDayCellMobile">{{wod.Day}}</div>
                     </div>
@@ -43,8 +43,6 @@
                     <div ng-repeat="comment in wod.Comments track by $index" class="row">
                         <div class="wodCommentCellMobile">{{comment}}</div>
                     </div>
-
-                    <br />
                     <br />
                 </div>
             </div>
