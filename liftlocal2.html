@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="liftLocal2.css">
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-ui-router.min.js"></script>
+    <script src="liftlocal2.app.js"></script>
+    <script src="liftlocal2.factory.js"></script>
+    <title>Lift Local benefiting the Nourish Program</title>
+</head>
+<body ng-app="liftLocalApp" ng-controller="liftLocalController as vm">
+    <div class="table">
+        <div class="mainRow">
+            <div class="mainCell">
+                <div class="table">
+                    <div ng-show="vm.activeWOD.IsHeroWOD" class="wodRowHero">
+                        <div class="wodCell">
+                            <span ng-hide="vm.activeWOD.Title==''" class="wodName">{{vm.activeWOD.Title}}<br /></span>
+                            <span ng-hide="vm.activeWOD.Description==''" class="wodDescription">{{vm.activeWOD.Description}}<br /></span>
+                            <span ng-hide="vm.activeWOD.Comments==''" class="wodComment">{{vm.activeWOD.Comments}}</span>
+                            <span ng-hide="vm.activeWOD.Title==''"><br /></span>
+                        </div>
+                    </div>
+                    <div ng-hide="vm.activeWOD.IsHeroWOD" class="wodRowCommunity">
+                        <div class="wodCell">
+                            <span ng-hide="vm.activeWOD.Title==''" class="wodName">{{vm.activeWOD.Title}}<br /></span>
+                            <span ng-hide="vm.activeWOD.Description==''" class="wodDescription">{{vm.activeWOD.Description}}<br /></span>
+                            <span ng-hide="vm.activeWOD.Comments==''" class="wodComment">{{vm.activeWOD.Comments}}</span>
+                            <span ng-hide="vm.activeWOD.Title==''"><br /></span>
+                        </div>
+                    </div>
+                    <div class="athleteRow">
+                        <div class="athleteCell">
+                            <span ng-repeat="athlete in vm.activeWOD.Athletes track by $index">
+                                <span class="athlete" ng-hide="athlete[0]==''">
+                                    <span ng-repeat="line in athlete.Name track by $index">{{line}}<br /></span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
